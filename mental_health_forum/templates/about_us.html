@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stress Management Guide</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f3f7ff;
+    overflow-x:hidden;
+}
+
+/* ================= HERO SECTION ================= */
+
+.top-navbar{
+    position:relative;
+    width:100%;
+    min-height:560px;
+    padding:40px 60px 50px 60px;
+    overflow:hidden;
+    background:
+    linear-gradient(
+        rgba(10,20,40,0.6),
+        rgba(10,20,40,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.18);
+}
+
+/* GLOW EFFECT */
+.glow1{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#7c3aed;
+    border-radius:50%;
+    filter:blur(130px);
+    top:-100px;
+    left:-100px;
+    opacity:0.35;
+}
+
+.glow2{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#06b6d4;
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-120px;
+    right:-100px;
+    opacity:0.35;
+}
+
+/* BRAND MAIN HEADER ROW */
+.nav-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* LEFT BRANDING CONTAINER (LOGO + TEXT PARTITION) */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* FROSTED LOGO SQUARE WITH HOME LINK */
+.logo-wrapper {
+    width: 95px;
+    height: 95px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.logo-wrapper i {
+    font-size: 45px;
+    color: #22c55e; /* Vibrant green matching your dashboard */
+    filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+}
+
+/* TEXT AREA NEXT TO THE LOGO PARTITION */
+.brand-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    width: max-content;
+    margin-bottom: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.brand-main-title {
+    color: white;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 6px;
+    max-width: 600px;
+}
+
+/* RIGHT SIDE LOGOUT BUTTON */
+.logout-box-container {
+    margin-top: 10px;
+}
+
+.logout-rect-btn {
+    background: #ff4d4d;
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+    text-decoration: none;
+}
+
+.logout-rect-btn:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
+}
+
+/* HERO SECTION TEXT OVERRIDE FOR GUIDE PAGE TITLE */
+.hero-content-title {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hero-content-title h1 {
+    font-size: 42px;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ================= COMMUNITY STYLED NAVIGATION LINKS ================= */
+.nav-buttons-panel {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 14px;
+    border-radius: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-item {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    color: white !important;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.nav-link-item i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.nav-link-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ACCENT BUTTON THEMES */
+.item-home { background: #2563eb; }
+.item-about { background: #ea580c; }
+.item-help { background: #db2777; }
+.item-community { background: #c084fc; }
+.item-chatbot { background: #fcd34d; color: #111 !important; }
+.item-review { background: #0284c7; }
+.item-appointment { background: #0d9488; }
+.item-helpline { background: #dc2626; }
+
+/* DROPDOWNS */
+.dropdown-menu {
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.98);
+    margin-top: 8px !important;
+}
+
+.dropdown-item {
+    font-size: 15px;
+    font-weight: 550;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #374151;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+}
+
+/* MAIN CONTENT BOX */
+.main-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    margin-top:50px;
+    padding-bottom:70px;
+}
+
+/* RESPONSIVE DESIGN BREAKPOINTS */
+@media(max-width:1199px) {
+    .nav-buttons-panel {
+        width: 95%;
+        left: 0;
+        transform: none;
+        display: flex;
+    }
+}
+
+@media(max-width:768px){
+    .top-navbar{
+        padding: 25px 20px;
+        min-height: auto;
+    }
+
+    .nav-top-row{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .brand-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .welcome-badge {
+        margin: 0 auto 8px auto;
+    }
+
+    .brand-main-title {
+        font-size: 36px;
+    }
+
+    .logout-box-container {
+        width: 100%;
+    }
+
+    .logout-rect-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-buttons-panel{
+        flex-direction:column;
+        align-items: stretch;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .nav-link-item, .dropdown, .dropdown-toggle{
+        width:100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-navbar">
+
+    <div class="glow1"></div>
+    <div class="glow2"></div>
+
+    <div class="container-fluid px-0">
+        <div class="nav-top-row">
+
+            <div class="brand-container">
+                
+                <a href="{{ url_for('home') }}" class="logo-wrapper" title="Go to Home">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </a>
+
+                <div class="brand-text-block">
+                    <div class="welcome-badge">✨ Welcome to Wellness</div>
+                    <div class="brand-main-title">Mental Wellness Hub</div>
+                    <div class="brand-subtitle">Supporting emotional wellness, positivity, healing, mindfulness, and self-care through community support and AI-powered assistance.</div>
+                </div>
+
+            </div>
+
+            <div class="logout-box-container">
+                <a href="{{ url_for('logout') }}" class="logout-rect-btn">
+                    <i class="bi bi-box-arrow-right"></i>Logout
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-content-title">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="nav-buttons-panel">
+
+        <a href="{{ url_for('home') }}" class="nav-link-item item-home">
+            <i class="bi bi-house-door-fill"></i>Home
+        </a>
+
+        <a href="{{ url_for('about_us') }}" class="nav-link-item item-about">
+            <i class="bi bi-info-circle-fill"></i>About Us
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-help dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-life-preserver"></i>Seek Assistance
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('stress_management') }}">
+                        <i class="bi bi-emoji-smile text-danger"></i>Stress Management
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('anxiety_support') }}">
+                        <i class="bi bi-shield-heart text-primary"></i>Anxiety Support
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('self_care') }}">
+                        <i class="bi bi-flower1 text-success"></i>Self Care
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('community') }}" class="nav-link-item item-community">
+            <i class="bi bi-people-fill"></i>Community
+        </a>
+
+        <a href="{{ url_for('chatbot') }}" class="nav-link-item item-chatbot">
+            <i class="bi bi-robot"></i>Chatbot
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-review dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-journal-check"></i>Review
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('create_post') }}">
+                        <i class="bi bi-plus-circle text-success"></i>Create Post
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('my_posts') }}">
+                        <i class="bi bi-journal-text text-primary"></i>My Posts
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('appointment') }}" class="nav-link-item item-appointment">
+            <i class="bi bi-calendar-check"></i>Book Appointment
+        </a>
+
+        <a href="{{ url_for('helpline') }}" class="nav-link-item item-helpline">
+            <i class="bi bi-telephone-fill"></i>Free Helpline
+        </a>
+
+    </div>
+
+</div>
+</head>
+</body>
+
+<!-- ================= HERO SECTION ================= -->
+
+<!-- ================= 1. EXTRA-LARGE HERO CAPSTONE ================= -->
+<section class="hero-section" id="about-top" style="background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.07), transparent), radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.05), transparent), radial-gradient(circle at center, rgba(244, 63, 94, 0.02), transparent); padding: 120px 20px; text-align: center; position: relative; border-bottom: 1px solid #f1f5f9;">
+    <div style="position: absolute; top: 15%; left: 10%; width: 300px; height: 300px; background: rgba(6,182,212,0.1); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: 10%; right: 5%; width: 350px; height: 350px; background: rgba(79,70,229,0.08); filter: blur(120px); border-radius: 50%; pointer-events: none;"></div>
+
+    <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;">
+        <span class="hero-tagline" style="background: linear-gradient(90deg, #4f46e5, #06b6d4, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; display: inline-block; margin-bottom: 25px; padding: 6px 18px; background-color: rgba(79, 70, 229, 0.04); border-radius: 50px; border: 1px solid rgba(79, 70, 229, 0.12);">
+            <i class="bi bi-shield-heart-fill"></i> Our Comprehensive Manifesto
+        </span>
+        
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900; color: #0f172a; margin-bottom: 25px; letter-spacing: -1.5px; line-height: 1.1;">
+            Deconstructing Emotional Isolation.<br>
+            <span style="background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Architecting Human Resilience.</span>
+        </h1>
+        
+        <p style="max-width: 820px; margin: 0 auto 40px auto; font-size: 1.25rem; line-height: 1.8; color: #475569; font-weight: 400;">
+            We are building a paradigm shift in digital mental wellness. Our platform transitions away from generic surface-level advice, establishing an analytical, structured environment that blends clinical paradigms with interactive technological interventions.
+        </p>
+
+        <!-- Quick Jump Links to Assist Scannability -->
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+            <a href="#foundational-purpose" style="font-size: 0.85rem; font-weight: 600; color: #4f46e5; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">1. Our Roots</a>
+            <a href="#clinical-framework" style="font-size: 0.85rem; font-weight: 600; color: #06b6d4; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">2. Core Methodology</a>
+            <a href="#operational-pillars" style="font-size: 0.85rem; font-weight: 600; color: #10b981; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">3. Ecosystem Pillars</a>
+            <a href="#privacy-charter" style="font-size: 0.85rem; font-weight: 600; color: #64748b; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">4. Data Safety Charter</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 2. COUNTER BALANCE METRIC SYSTEM ================= -->
+<div style="background-color: #0f172a; padding: 40px 20px; border-bottom: 1px solid #1e293b;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px;">
+        <div style="text-align: center; padding: 10px;">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #818cf8; margin-bottom: 5px;">24/7/365</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Continuous Access to Self-Guided Care</div>
+        </div>
+        <div style="text-align: center; padding: 10px; border-left: 1px solid #1e293b;">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #2dd4bf; margin-bottom: 5px;">100%</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Zero-Ad Platform Framework Guarantee</div>
+        </div>
+        <div style="text-align: center; padding: 10px; border-left: 1px solid #1e293b;">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #fb7185; margin-bottom: 5px;">4 Key</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Interlocking Wellness Modules</div>
+        </div>
+        <div style="text-align: center; padding: 10px; border-left: 1px solid #1e293b;">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #34d399; margin-bottom: 5px;">&infin;</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Devotion to Structural Autonomy</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= MAIN LARGE CONTAINER ================= -->
+<div class="about-container" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px;">
+    
+    <!-- SECTION A: ROOT PURPOSE & SYSTEM OBJECTIVES -->
+    <div id="foundational-purpose" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 50px; align-items: center;">
+            <div>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                    <span style="width: 30px; height: 30px; background: rgba(79, 70, 229, 0.1); color: #4f46e5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;"><i class="bi bi-bullseye"></i></span>
+                    <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #4f46e5; letter-spacing: 1px;">Our Strategic Origins</span>
+                </div>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 25px; line-height: 1.2;">Addressing the Silent Crisis of Cognitive Exhaustion</h2>
+                <p style="color: #475569; line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px;">
+                    The modern landscape exposes human psychology to unprecedented biological stressors. Fast workplace paces, digital overstimulation, emotional disconnection, and escalating anxiety cycles erode our natural psychological baselines. Millions navigate these currents daily, operating inside an continuous status of autonomic nervous system overload.
+                </p>
+                <p style="color: #475569; line-height: 1.8; font-size: 1.05rem;">
+                    We created this platform to challenge passive support frameworks. True mental resilience requires active, clear tools. Our focus centers on organizing self-guided relief paradigms into a scannable dashboard, giving individuals full structural control over their recovery.
+                </p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 45px; border-radius: 28px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 8px rgba(0,0,0,0.01);">
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 20px;">Ecosystem Design Objectives</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; gap: 15px;">
+                        <i class="bi bi-check-circle-fill" style="color: #10b981; font-size: 1.2rem; margin-top: 2px;"></i>
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; font-size: 1.05rem; font-weight: 700; color: #1e293b;">Isolation Mitigation</h4>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem; line-height: 1.5;">Providing anonymous peer structures that dissolve loneliness cycles without exposing sensitive user histories.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <i class="bi bi-check-circle-fill" style="color: #10b981; font-size: 1.2rem; margin-top: 2px;"></i>
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; font-size: 1.05rem; font-weight: 700; color: #1e293b;">Actionable Micro-Habits</h4>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem; line-height: 1.5;">Breaking massive, intimidating therapy concepts down into swift, five-minute actionable grounding structures.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <i class="bi bi-check-circle-fill" style="color: #10b981; font-size: 1.2rem; margin-top: 2px;"></i>
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; font-size: 1.05rem; font-weight: 700; color: #1e293b;">Zero Clinical Barrier Gatekeeping</h4>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem; line-height: 1.5;">Ensuring immediate access to somatic pacers and baseline diagnostics instantly upon deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION B: IN-DEPTH CLINICAL ROADMAPS & FRAMEWORKS -->
+    <div id="clinical-framework" style="margin-bottom: 100px; padding: 60px 45px; background: #0f172a; border-radius: 32px; color: white; scroll-margin-top: 50px;">
+        <div style="max-width: 850px; margin: 0 auto; text-align: center; margin-bottom: 55px;">
+            <span style="color: #a5b4fc; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px;">Evidence-Based Anchors</span>
+            <h2 style="font-size: 2.4rem; font-weight: 800; margin-top: 0; margin-bottom: 20px;">The Psychological Architecture of Our Frameworks</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+                We do not deal in temporary motivational affirmations. Our structural catalog relies entirely upon established psychological disciplines tailored for fast everyday use.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Framework 1 -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 35px; border-radius: 20px;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Paradigm 01</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">Cognitive Behavioral Therapy (CBT)</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                    CBT addresses the core connections linking thoughts, physical sensations, and automatic responses. Our interactive modules demonstrate how to catch cognitive distortions—like jumping to catastrophic conclusions—and balance them against objective historical evidence.
+                </p>
+            </div>
+            
+            <!-- Framework 2 -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 35px; border-radius: 20px;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: #2dd4bf; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Paradigm 02</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">Mindfulness & MBSR Models</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                    Mindfulness-Based Stress Reduction stops frantic racing thoughts from taking over. By guiding your awareness firmly back to the objective present moment, you safely reduce intense emotional escalation.
+                </p>
+            </div>
+
+            <!-- Framework 3 -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 35px; border-radius: 20px;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: #fb7185; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Paradigm 03</div>
+                <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">Somatic Polyvagal Integration</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                    When stress escalates, your physical body holds onto the tension before your mind can process it. Our breathing patterns stimulate the vagus nerve directly, signaling your nervous system to downregulate cortisol levels safely.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION C: ENHANCED OPERATIONAL CHANNELS (WHY CHOOSE US) -->
+    <div id="operational-pillars" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div class="section-title" style="text-align: center; margin-bottom: 60px;">
+            <span style="color: #06b6d4; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Functional Analysis</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 5px;">Why Lean On Our Digital Environment?</h2>
+            <div style="width: 50px; height: 3px; background: #06b6d4; margin: 15px auto 0 auto; border-radius: 10px;"></div>
+        </div>
+
+        <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
+            
+            <!-- Pillar Card 1 -->
+            <div class="feature-card about-ext-card" style="background: #ffffff; padding: 40px 30px; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 45px; height: 45px; background: rgba(79, 70, 229, 0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4f46e5; font-size: 1.3rem; margin-bottom: 25px;">
+                    <i class="bi bi-emoji-smile-fill"></i>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">Somatic Stress Relief</h4>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Nervous system stabilization through interactive templates. Use visual pacing setups to align your breathing patterns and counter unmanaged emotional loops instantly.
+                </p>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; background: rgba(79, 70, 229, 0.05); padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Module Ready</span>
+            </div>
+
+            <!-- Pillar Card 2 -->
+            <div class="feature-card about-ext-card" style="background: #ffffff; padding: 40px 30px; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 45px; height: 45px; background: rgba(6, 182, 212, 0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #06b6d4; font-size: 1.3rem; margin-bottom: 25px;">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">Anxiety Architecture</h4>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Deconstruct high-stress situations using systematic cognitive worksheets. Trace automatic negative thoughts, break down worst-case filters, and re-anchor your rationale clearly.
+                </p>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #06b6d4; background: rgba(6, 182, 212, 0.05); padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Module Ready</span>
+            </div>
+
+            <!-- Pillar Card 3 -->
+            <div class="feature-card about-ext-card" style="background: #ffffff; padding: 40px 30px; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 45px; height: 45px; background: rgba(16, 185, 129, 0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #10b981; font-size: 1.3rem; margin-bottom: 25px;">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">Vetted Community Tracking</h4>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Connect with peers within intentionally structured space lanes. Exchange navigation strategies for work burnout, circadian balancing, and daily micro-wins safely.
+                </p>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.05); padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Staged Deployment</span>
+            </div>
+
+            <!-- Pillar Card 4 -->
+            <div class="feature-card about-ext-card" style="background: #ffffff; padding: 40px 30px; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 45px; height: 45px; background: rgba(244, 63, 94, 0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #f43f5e; font-size: 1.3rem; margin-bottom: 25px;">
+                    <i class="bi bi-robot"></i>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">Empathetic AI Companion</h4>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Context-aware processing engine trained to offer immediate, non-judgmental dialogue support. Access quick grounding exercises anytime without data monetization tracking.
+                </p>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #f43f5e; background: rgba(244, 63, 94, 0.05); padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Staged Deployment</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION D: EXTENSIVE PRIVACY & ETHICS CHARTER -->
+    <div id="privacy-charter" style="margin-bottom: 100px; padding: 50px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 24px; scroll-margin-top: 50px;">
+        <div style="max-width: 750px; margin-bottom: 40px;">
+            <span style="color: #64748b; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Absolute Separation Protocol</span>
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin: 0 0 15px 0;">Our Data Ethics & Absolute Privacy Mandate</h2>
+            <p style="color: #475569; line-height: 1.6; margin: 0; font-size: 1rem;">
+                Mental health tracking requires absolute psychological safety. We believe your personal reflection history, diagnostic scores, and emotional metrics belong to you alone. Our architecture enforces strict data integrity standards.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; border-top: 1px solid #e2e8f0; padding-top: 35px;">
+            <div>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: #0f172a; margin: 0 0 10px 0;"><i class="bi bi-eye-slash-fill" style="color: #4f46e5; margin-right: 8px;"></i> No Data Monetization</h4>
+                <p style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    We never sell, rent, license, or share individual user metrics, mood tracking logs, or profile parameters with external marketing tracking networks.
+                </p>
+            </div>
+            <div>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: #0f172a; margin: 0 0 10px 0;"><i class="bi bi-incognito" style="color: #06b6d4; margin-right: 8px;"></i> Complete Persona Safety</h4>
+                <p style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    Our upcoming community interactions feature anonymous pseudonyms. Your forum footprint remains fully separated from your account sign-in email data.
+                </p>
+            </div>
+            <div>
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: #0f172a; margin: 0 0 10px 0;"><i class="bi bi-file-earmark-lock-fill" style="color: #10b981; margin-right: 8px;"></i> Full Profile Sovereignty</h4>
+                <p style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    You keep absolute control over your profile records. Wipe your initial diagnostic charts or purge your custom logs at any point directly from your dashboard settings.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SECTION E: EXTENDED MASTER ACCORDION FAQ ================= -->
+    <div style="margin-bottom: 80px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span style="color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Operational Disclosures</span>
+            <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin: 5px 0 0 0;">Frequently Disclosed Explanations</h2>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+            <!-- Question 1 -->
+            <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,0.01);">
+                <h4 style="margin: 0 0 12px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">How does the self-guided framework differ from traditional options?</h4>
+                <p style="margin: 0; color: #475569; line-height: 1.7; font-size: 0.95rem;">
+                    Traditional wellness content often gets stuck in generic motivational advice. Our platform treats mental fitness like an engineering discipline. We provide structural layouts, diagnostic metrics, and clear cognitive maps so users can visually trace, analyze, and track their growth steps in real-time.
+                </p>
+            </div>
+
+            <!-- Question 2 -->
+            <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,0.01);">
+                <h4 style="margin: 0 0 12px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">What is the targeted schedule for the upcoming AI and community updates?</h4>
+                <p style="margin: 0; color: #475569; line-height: 1.7; font-size: 0.95rem;">
+                    Because our platform is newly developed, we are rolling out features in careful phases. Right now, our self-care documentation, core psychological layouts, and breathing pacers are fully operational. Vetted connection channels and our AI model integrations are moving through final security checking, rolling out safely over coming updates.
+                </p>
+            </div>
+
+            <!-- Question 3 -->
+            <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,0.01);">
+                <h4 style="margin: 0 0 12px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">Can multiple people utilize the same device profile safely?</h4>
+                <p style="margin: 0; color: #475569; line-height: 1.7; font-size: 0.95rem;">
+                    To maximize personal privacy data security, we highly recommend setting up an individual profile for each user. Because diagnostics and cognitive reframing parameters generate custom dashboard roadmaps, a single separate account ensures your baseline progress metrics remain completely distinct.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SECTION F: DELUXE STATIC BLOCKQUOTE ================= -->
+    <div class="quote-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 70px 50px; border-radius: 28px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.12); margin-bottom: 70px;">
+        <div style="position: absolute; bottom: -50px; right: 10px; font-size: 18rem; color: rgba(255,255,255,0.02); line-height: 1; font-family: serif; pointer-events: none; user-select: none;">&rdquo;</div>
+        <i class="bi bi-quote" style="font-size: 3rem; color: #06b6d4; display: block; margin-bottom: 20px;"></i>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.4; max-width: 900px; margin: 0 auto; color: #f8fafc;">
+            “Mental resilience is not a fixed character trait you are born with. It is an intentional structural workspace you choose to build every single day.”
+        </h2>
+        <span style="display: block; margin-top: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2.5px; color: #94a3b8; font-weight: 700;">Ecosystem Core Architecture Directive</span>
+    </div>
+
+    <!-- ================= SECTION G: ABSOLUTE SECURE DASHBOARD RETURN ================= -->
+    <div class="btn-section" style="text-align: center; padding-top: 20px;">
+        <a href="{{ url_for('dashboard') }}" class="btn-dashboard" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); color: white; padding: 18px 45px; border-radius: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25); transition: all 0.3s ease; font-size: 1.05rem;">
+            <i class="bi bi-arrow-left-circle-fill" style="font-size: 1.3rem;"></i> Return Securely to Home
+        </a>
+        <span style="display: block; margin-top: 15px; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">Secure transmission handshake confirmed · Session encrypted</span>
+    </div>
+
+</div>
+
+<!-- ================= GLOBAL DESIGN ANIMATION HOVER RULES ================= -->
+<style>
+html { scroll-behavior: smooth; }
+.about-ext-card:hover { transform: translateY(-6px); border-color: #cbd5e1 !important; box-shadow: 0 15px 35px rgba(15,23,42,0.05) !important; }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

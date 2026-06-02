@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness Hub</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f4f7ff, #eef4ff, #ffffff);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= HEADER HERO & NAVBAR ================= */
+        .top-navbar {
+            width: 100%;
+            /* Enhanced gradient overlay darkness to ensure text stands out cleanly over the landscape background image */
+            background: linear-gradient(rgba(15, 32, 39, 0.55), rgba(32, 58, 67, 0.65)),
+                        url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 60px 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-content {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* TOP SECTION: Logo, Intro & Logout Button */
+        .brand-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vertically aligns logo block and logout button */
+            width: 100%;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            max-width: 75%;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+        }
+
+        .logo-box i {
+            font-size: 52px;
+            color: #4ade80;
+        }
+
+        .logo-text {
+            color: white;
+        }
+
+        .welcome-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-text h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            color: #e2e8f0;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+            max-width: 700px;
+            line-height: 1.5;
+        }
+
+        /* LOGOUT BUTTON CONTAINER POSITIONING */
+        .logout-box {
+            flex-shrink: 0;
+            margin-left: auto; /* Ensures strong right-side alignment push */
+        }
+
+        .logout-btn {
+            background: #ff4d5a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 77, 90, 0.3);
+            border: none;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-3px);
+            background: #e03d49;
+            color: white;
+        }
+
+        /* NAVIGATION LINKS ROW */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: .3s;
+            border: none;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-4px);
+            color: white;
+            filter: brightness(1.1);
+        }
+
+        /* NAVIGATION BUTTON GRADIENTS */
+        .home-btn { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .about-btn { background: linear-gradient(135deg, #ff4b2b, #ff416c); }
+        .assistance-btn { background: linear-gradient(135deg, #ea580c, #c2410c); }
+        .community-btn { background: linear-gradient(135deg, #b512b8, #86118d); }
+        .chatbot-btn { background: linear-gradient(135deg, #eab308, #ca8a04); }
+        .review-btn { background: linear-gradient(135deg, #db2777, #be185d); }
+        .appointment-btn { background: linear-gradient(135deg, #10b981, #059669); }
+        .helpline-btn { background: linear-gradient(135deg, #6366f1, #4f46e5); width: fit-content; }
+
+        /* DROPDOWN CUSTOM STYLING */
+        .dropdown-menu {
+            border: none;
+            border-radius: 18px;
+            padding: 10px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .dropdown-item {
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: #eef4ff;
+            transform: translateX(4px);
+        }
+
+        /* ================= COMMUNITY INFOBAR HERO ================= */
+        .hero-info-section {
+            padding: 50px 20px 30px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-info-section h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-info-section p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* STATS */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px 35px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef2ff;
+            min-width: 200px;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-box h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* ================= FEED CONTAINER & POSTS ================= */
+        .feed-container {
+            max-width: 720px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 26px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+            border: 1px solid #eef2ff;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            background: #eef4ff;
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #dbeafe;
+        }
+
+        .username {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .user-status {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .category {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .post-text {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+            margin-bottom: 20px;
+        }
+
+        .like-btn {
+            background: none;
+            border: none;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .like-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .comment-info {
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* COMMENTS SUBSECTION */
+        .comments {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .comment {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .comment:last-of-type {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .comment-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .comment-text {
+            font-size: 13px;
+            color: #475569;
+            padding-left: 20px;
+        }
+
+        .no-comments {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 0 20px;
+        }
+
+        /* COMMENT FORM */
+        .comment-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .comment-input {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 10px 16px;
+            font-size: 13px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .comment-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .submit-comment-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 0 18px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-comment-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* ================= RESPONSIVE ADJUSTMENTS ================= */
+        @media(max-width: 992px) {
+            .brand-header-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .logo-section {
+                max-width: 100%;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .top-navbar {
+                padding: 30px 30px 40px;
+            }
+            .logo-text h2 {
+                font-size: 2.4rem;
+            }
+            .logout-box {
+                margin-left: 0;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .logo-text h2 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+                        MAIN HEADER HERO & NAVBAR
+    ===================================================== -->
+    <div class="top-navbar">
+        <div class="nav-content">
+            
+            <!-- BRAND ROW (Logo + Header Text + Logout Button aligned to the right) -->
+            <div class="brand-header-row">
+
+                <!-- LOGO SECTION -->
+                <div class="logo-section">
+                    <div class="logo-wrapper">
+                        <a href="{{ url_for('home') }}" class="logo-box text-decoration-none">
+                            <i class="bi bi-heart-pulse-fill"></i>
+                        </a>
+                    </div>
+                    <div class="logo-text">
+                        <div class="welcome-badge">
+                            <i class="bi bi-sparkles"></i> Welcome to Wellness
+                        </div>
+                        <h2>Mental Wellness Hub</h2>
+                        <p>Supporting emotional wellness, positivity, healing, mindfulness, and self-care through community support and AI-powered assistance.</p>
+                    </div>
+                </div>
+
+                <!-- Correctly aligned out to the far right -->
+                <div class="logout-box">
+                    <a href="{{ url_for('logout') }}" class="logout-btn">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </div>
+            </div>
+
+            <!-- NAVIGATION MAIN BUTTON BAR -->
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-btn home-btn">
+                    <i class="bi bi-house-door-fill"></i> Home
+                </a>
+
+                <a href="{{ url_for('about_us') }}" class="nav-btn about-btn">
+                    <i class="bi bi-info-circle-fill"></i> About Us
+                </a>
+
+                <!-- Dropdown Trigger Element: Seek Assistance -->
+                <div class="dropdown">
+                    <button class="nav-btn assistance-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-life-preserver"></i> Seek Assistance
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('stress_management') }}">
+                                <i class="bi bi-emoji-smile text-danger"></i> Stress Management
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('anxiety_support') }}">
+                                <i class="bi bi-shield-heart text-primary"></i> Anxiety Support
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('self_care') }}">
+                                <i class="bi bi-flower1 text-success"></i> Self Care
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="{{ url_for('community') }}" class="nav-btn community-btn">
+                    <i class="bi bi-people-fill"></i> Community
+                </a>
+
+                <a href="{{ url_for('chatbot') }}" class="nav-btn chatbot-btn">
+                    <i class="bi bi-robot"></i> Chatbot
+                </a>
+
+                <!-- Dropdown Trigger Element: Review Option Layout -->
+                <div class="dropdown">
+                    <button class="nav-btn review-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-star-fill"></i> Review
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('create_post') }}">
+                                <i class="bi bi-plus-circle"></i> Create Post
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('my_posts') }}">
+                                <i class="bi bi-journal-text"></i> My Posts
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="{{ url_for('appointment') }}" class="nav-btn appointment-btn">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                </a>
+            </div>
+
+            <!-- LOWER ALIGNED CENTER BUTTON -->
+            <div class="d-flex justify-content-center w-100 mt-2">
+                <a href="{{ url_for('helpline') }}" class="nav-btn helpline-btn">
+                    <i class="bi bi-telephone-fill"></i> Free Helpline
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+                        COMMUNITY DESCRIPTION HERO
+    ===================================================== -->
+    <section class="hero-info-section">
+        <h1>Welcome To The Community</h1>
+        <p>
+            Join a safe and supportive space where people share experiences, encourage one another, 
+            discuss mental wellness, stress management, self-care practices, and personal growth. 
+            Together we build a stronger, healthier, and more positive community.
+        </p>
+
+        <!-- STATS LAYOUT BLOCKS -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <h2>25K+</h2>
+                <p>Community Members</p>
+            </div>
+            <div class="stat-box">
+                <h2>18K+</h2>
+                <p>Positive Discussions</p>
+            </div>
+            <div class="stat-box">
+                <h2>99%</h2>
+                <p>Supportive Environment</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+                        FEED CONTAINER MODULE
+    ===================================================== -->
+    <div class="feed-container">
+        {% for post in posts %}
+        <!-- POST BLOCK STARTS -->
+        <div class="post-card" id="post-{{ post.id }}">
+            
+            <!-- HEADER -->
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="avatar">
+                        {{ post.user.username[0] | upper }}
+                    </div>
+                    <div>
+                        <div class="username">{{ post.user.username }}</div>
+                        <div class="user-status">Active Community Member</div>
+                    </div>
+                </div>
+                <div class="category">
+                    {{ post.category }}
+                </div>
+            </div>
+
+            <!-- POST MAIN IMAGE -->
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" class="post-image" alt="Community shared space illustration">
+
+            <!-- CONTENT -->
+            <div class="post-content">
+                <div class="post-title">{{ post.title }}</div>
+                <div class="post-text">{{ post.content }}</div>
+            </div>
+
+            <!-- ACTION TAB -->
+            <div class="action-bar">
+                <!-- LIKE APP ACTION FORM -->
+                <form action="{{ url_for('support_post', post_id=post.id) }}" method="POST">
+                    <input type="hidden" name="next" value="{{ url_for('community') }}#post-{{ post.id }}">
+                    <button type="submit" class="like-btn">
+                        <i class="bi bi-heart-fill"></i> Like ({{ post.support|length }})
+                    </button>
+                </form>
+
+                <!-- COMMENTS COUNTER TRACKER -->
+                <div class="comment-info">
+                    <i class="bi bi-chat-dots-fill"></i> {{ post.comments|length }} Comments
+                </div>
+            </div>
+
+            <!-- RESPONSIVE COMMENTS LISTING AREA -->
+            <div class="comments">
+                {% if post.comments %}
+                    {% for c in post.comments %}
+                    <div class="comment">
+                        <div class="comment-name">
+                            <i class="bi bi-person-circle"></i> {{ c.user.username }}
+                        </div>
+                        <div class="comment-text">{{ c.comment }}</div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="no-comments">
+                        No comments yet. Be the first to support ❤️
+                    </div>
+                {% endif %}
+
+                <!-- INPUT INTERFACE APP FORM -->
+                <form class="comment-form" method="POST" action="{{ url_for('add_comment', post_id=post.id) }}">
+                    <input type="hidden" name="next" value="{{ url_for('community') }}#post-{{ post.id }}">
+                    <input type="text" name="comment" class="comment-input" placeholder="Write something supportive..." required>
+                    <button type="submit" class="submit-comment-btn">
+                        <i class="bi bi-send-fill"></i> Post
+                    </button>
+                </form>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Bootstrap Bundle JS Script Link Included -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

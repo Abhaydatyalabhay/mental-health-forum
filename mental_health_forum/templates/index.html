@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Awareness Forum</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            background:rgba(15,23,42,0.95);
+            backdrop-filter:blur(10px);
+            padding:15px 0;
+        }
+
+        .navbar-brand{
+            font-size:28px;
+            font-weight:700;
+            color:white !important;
+        }
+
+        .nav-btn{
+            border-radius:12px;
+            padding:10px 22px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .nav-btn:hover{
+            transform:translateY(-2px);
+        }
+
+        /* HERO SECTION */
+
+        .hero{
+            min-height:90vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:50px 20px;
+            background:
+            linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.8)),
+            url('https://images.unsplash.com/photo-1493836512294-502baa1986e2?q=80&w=1600&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            position:relative;
+        }
+
+        .hero-content{
+            max-width:850px;
+            animation:fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
+
+        .hero h1{
+            font-size:70px;
+            font-weight:700;
+            margin-bottom:20px;
+            line-height:1.2;
+        }
+
+        .hero span{
+            color:#38bdf8;
+        }
+
+        .hero p{
+            font-size:22px;
+            color:#cbd5e1;
+            margin-bottom:35px;
+        }
+
+        .hero-btn{
+            padding:15px 35px;
+            border:none;
+            border-radius:15px;
+            font-size:18px;
+            font-weight:600;
+            background:linear-gradient(135deg,#2563eb,#38bdf8);
+            color:white;
+            transition:0.3s;
+            box-shadow:0 10px 25px rgba(37,99,235,0.3);
+        }
+
+        .hero-btn:hover{
+            transform:translateY(-4px);
+        }
+
+        /* SECTION TITLE */
+
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .section-title h2{
+            font-size:45px;
+            font-weight:700;
+        }
+
+        .section-title p{
+            color:#94a3b8;
+            margin-top:10px;
+        }
+
+        /* FEATURE SECTION */
+
+        .features{
+            padding:100px 20px;
+            background:#111827;
+        }
+
+        .feature-card{
+            background:#1e293b;
+            border-radius:25px;
+            padding:35px;
+            text-align:center;
+            transition:0.4s;
+            height:100%;
+            border:1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon{
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            background:linear-gradient(135deg,#2563eb,#38bdf8);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:0 auto 25px;
+            font-size:38px;
+            color:white;
+        }
+
+        .feature-card h3{
+            margin-bottom:15px;
+            font-weight:700;
+        }
+
+        .feature-card p{
+            color:#cbd5e1;
+        }
+
+        /* DISCUSSIONS */
+
+        .discussion-section{
+            padding:100px 20px;
+        }
+
+        .discussion-card{
+            background:#1e293b;
+            border-radius:25px;
+            padding:30px;
+            margin-bottom:25px;
+            transition:0.3s;
+            border:1px solid rgba(255,255,255,0.05);
+        }
+
+        .discussion-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .discussion-card h3{
+            color:#38bdf8;
+            margin-bottom:15px;
+            font-weight:700;
+        }
+
+        .discussion-card p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        .category-badge{
+            display:inline-block;
+            padding:8px 18px;
+            border-radius:30px;
+            background:rgba(56,189,248,0.15);
+            color:#38bdf8;
+            font-size:14px;
+            font-weight:600;
+            margin-top:10px;
+        }
+
+        .delete-btn{
+            margin-top:20px;
+            border-radius:10px;
+            padding:10px 20px;
+        }
+
+        /* COMMUNITY SECTION */
+
+        .community{
+            padding:100px 20px;
+            background:#111827;
+            text-align:center;
+        }
+
+        .community-box{
+            background:linear-gradient(135deg,#2563eb,#38bdf8);
+            border-radius:30px;
+            padding:70px 40px;
+            max-width:1000px;
+            margin:auto;
+            box-shadow:0 15px 35px rgba(37,99,235,0.25);
+        }
+
+        .community-box h2{
+            font-size:50px;
+            font-weight:700;
+            margin-bottom:20px;
+        }
+
+        .community-box p{
+            font-size:20px;
+            margin-bottom:30px;
+        }
+
+        /* FOOTER */
+
+        .footer{
+            background:#020617;
+            padding:30px;
+            text-align:center;
+            color:#94a3b8;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:42px;
+            }
+
+            .hero p{
+                font-size:18px;
+            }
+
+            .section-title h2{
+                font-size:34px;
+            }
+
+            .community-box h2{
+                font-size:35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse-fill"></i>
+                Mental Health Forum
+            </a>
+
+            <div>
+
+                <a href="/login" class="btn btn-outline-light nav-btn me-2">
+                    Login
+                </a>
+
+                <a href="/register" class="btn btn-info nav-btn">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                You Are <span>Not Alone</span>
+            </h1>
+
+            <p>
+                A safe space where people can share emotions,
+                support each other, and grow stronger together.
+            </p>
+
+            <a href="/register">
+
+                <button class="hero-btn">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    Join Our Community
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Why Mental Health Matters</h2>
+
+                <p>
+                    Small support and healthy habits can change lives.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <!-- STRESS -->
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-wind"></i>
+                        </div>
+
+                        <h3>Stress Management</h3>
+
+                        <p>
+                            Learn practical ways to manage stress,
+                            improve focus, and stay emotionally balanced.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ANXIETY -->
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-heart-fill"></i>
+                        </div>
+
+                        <h3>Anxiety Support</h3>
+
+                        <p>
+                            Connect with supportive people and explore
+                            techniques to reduce anxiety naturally.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- SELF CARE -->
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+
+                        <h3>Self Care</h3>
+
+                        <p>
+                            Discover mindfulness, positivity,
+                            emotional healing, and healthy routines.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DISCUSSIONS -->
+
+    <section class="discussion-section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Recent Discussions</h2>
+
+                <p>
+                    Read stories, thoughts, and experiences shared by the community.
+                </p>
+
+            </div>
+
+            {% for post in posts %}
+
+            <div class="discussion-card">
+
+                <h3>{{ post.title }}</h3>
+
+                <p>{{ post.content }}</p>
+
+                <span class="category-badge">
+
+                    <i class="bi bi-tag-fill"></i>
+
+                    {{ post.category }}
+
+                </span>
+
+                <!-- DELETE BUTTON -->
+
+                {% if current_user.is_authenticated and post.user_id == current_user.id %}
+
+                <form action="{{ url_for('delete_post', id=post.id) }}" method="POST">
+
+                    <button type="submit"
+                            class="btn btn-danger delete-btn"
+                            onclick="return confirm('Are you sure you want to delete this post?')">
+
+                        <i class="bi bi-trash-fill"></i>
+
+                        Delete Post
+
+                    </button>
+
+                </form>
+
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- COMMUNITY -->
+
+    <section class="community">
+
+        <div class="community-box">
+
+            <h2>
+                Together We Heal ❤️
+            </h2>
+
+            <p>
+                Join thousands of people building a healthier,
+                kinder, and more supportive mental wellness community.
+            </p>
+
+            <a href="/register">
+
+                <button class="hero-btn">
+
+                    <i class="bi bi-person-plus-fill"></i>
+
+                    Start Your Journey
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Mental Health Awareness Forum | Built with Python Flask ❤️
+        </p>
+
+    </footer>
+
+</body>
+</html>

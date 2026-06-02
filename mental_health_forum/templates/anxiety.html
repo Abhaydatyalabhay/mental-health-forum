@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anxiety Guide</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f3f7ff;
+    overflow-x:hidden;
+}
+
+/* ================= HERO SECTION ================= */
+
+.top-navbar{
+    position:relative;
+    width:100%;
+    min-height:560px;
+    padding:40px 60px 50px 60px;
+    overflow:hidden;
+    background:
+    linear-gradient(
+        rgba(10,20,40,0.6),
+        rgba(10,20,40,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.18);
+}
+
+/* GLOW EFFECT */
+.glow1{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#7c3aed;
+    border-radius:50%;
+    filter:blur(130px);
+    top:-100px;
+    left:-100px;
+    opacity:0.35;
+}
+
+.glow2{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#06b6d4;
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-120px;
+    right:-100px;
+    opacity:0.35;
+}
+
+/* BRAND MAIN HEADER ROW */
+.nav-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* LEFT BRANDING CONTAINER (LOGO + TEXT PARTITION) */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* FROSTED LOGO SQUARE WITH HOME LINK */
+.logo-wrapper {
+    width: 95px;
+    height: 95px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.logo-wrapper i {
+    font-size: 45px;
+    color: #22c55e; /* Vibrant green matching your dashboard */
+    filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+}
+
+/* TEXT AREA NEXT TO THE LOGO PARTITION */
+.brand-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    width: max-content;
+    margin-bottom: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.brand-main-title {
+    color: white;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 6px;
+    max-width: 600px;
+}
+
+/* RIGHT SIDE LOGOUT BUTTON */
+.logout-box-container {
+    margin-top: 10px;
+}
+
+.logout-rect-btn {
+    background: #ff4d4d;
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+    text-decoration: none;
+}
+
+.logout-rect-btn:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
+}
+
+/* HERO SECTION TEXT OVERRIDE FOR GUIDE PAGE TITLE */
+.hero-content-title {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hero-content-title h1 {
+    font-size: 42px;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ================= COMMUNITY STYLED NAVIGATION LINKS ================= */
+.nav-buttons-panel {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 14px;
+    border-radius: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-item {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    color: white !important;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.nav-link-item i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.nav-link-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ACCENT BUTTON THEMES */
+.item-home { background: #2563eb; }
+.item-about { background: #ea580c; }
+.item-help { background: #db2777; }
+.item-community { background: #c084fc; }
+.item-chatbot { background: #fcd34d; color: #111 !important; }
+.item-review { background: #0284c7; }
+.item-appointment { background: #0d9488; }
+.item-helpline { background: #dc2626; }
+
+/* DROPDOWNS */
+.dropdown-menu {
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.98);
+    margin-top: 8px !important;
+}
+
+.dropdown-item {
+    font-size: 15px;
+    font-weight: 550;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #374151;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+}
+
+/* MAIN CONTENT BOX */
+.main-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    margin-top:50px;
+    padding-bottom:70px;
+}
+
+/* RESPONSIVE DESIGN BREAKPOINTS */
+@media(max-width:1199px) {
+    .nav-buttons-panel {
+        width: 95%;
+        left: 0;
+        transform: none;
+        display: flex;
+    }
+}
+
+@media(max-width:768px){
+    .top-navbar{
+        padding: 25px 20px;
+        min-height: auto;
+    }
+
+    .nav-top-row{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .brand-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .welcome-badge {
+        margin: 0 auto 8px auto;
+    }
+
+    .brand-main-title {
+        font-size: 36px;
+    }
+
+    .logout-box-container {
+        width: 100%;
+    }
+
+    .logout-rect-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-buttons-panel{
+        flex-direction:column;
+        align-items: stretch;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .nav-link-item, .dropdown, .dropdown-toggle{
+        width:100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-navbar">
+
+    <div class="glow1"></div>
+    <div class="glow2"></div>
+
+    <div class="container-fluid px-0">
+        <div class="nav-top-row">
+
+            <div class="brand-container">
+                
+                <a href="{{ url_for('home') }}" class="logo-wrapper" title="Go to Home">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </a>
+
+                <div class="brand-text-block">
+                    <div class="welcome-badge">✨ Welcome to Wellness</div>
+                    <div class="brand-main-title">Mental Wellness Hub</div>
+                    <div class="brand-subtitle">Supporting emotional wellness, positivity, healing, mindfulness, and self-care through community support and AI-powered assistance.</div>
+                </div>
+
+            </div>
+
+            <div class="logout-box-container">
+                <a href="{{ url_for('logout') }}" class="logout-rect-btn">
+                    <i class="bi bi-box-arrow-right"></i>Logout
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-content-title">
+        <h1>Anxiety Guide</h1>
+    </div>
+
+    <div class="nav-buttons-panel">
+
+        <a href="{{ url_for('home') }}" class="nav-link-item item-home">
+            <i class="bi bi-house-door-fill"></i>Home
+        </a>
+
+        <a href="{{ url_for('about_us') }}" class="nav-link-item item-about">
+            <i class="bi bi-info-circle-fill"></i>About Us
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-help dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-life-preserver"></i>Seek Assistance
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('stress_management') }}">
+                        <i class="bi bi-emoji-smile text-danger"></i>Stress Management
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('anxiety_support') }}">
+                        <i class="bi bi-shield-heart text-primary"></i>Anxiety Support
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('self_care') }}">
+                        <i class="bi bi-flower1 text-success"></i>Self Care
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('community') }}" class="nav-link-item item-community">
+            <i class="bi bi-people-fill"></i>Community
+        </a>
+
+        <a href="{{ url_for('chatbot') }}" class="nav-link-item item-chatbot">
+            <i class="bi bi-robot"></i>Chatbot
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-review dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-journal-check"></i>Review
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('create_post') }}">
+                        <i class="bi bi-plus-circle text-success"></i>Create Post
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('my_posts') }}">
+                        <i class="bi bi-journal-text text-primary"></i>My Posts
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('appointment') }}" class="nav-link-item item-appointment">
+            <i class="bi bi-calendar-check"></i>Book Appointment
+        </a>
+
+        <a href="{{ url_for('helpline') }}" class="nav-link-item item-helpline">
+            <i class="bi bi-telephone-fill"></i>Free Helpline
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ================= CONTENT ================= -->
+
+<!-- ================= 1. EXTRA-LARGE ANXIETY MANAGEMENT HERO ARCHITECTURE ================= -->
+<section class="hero-section" id="anxiety-guide-top" style="background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.05), transparent), radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.05), transparent), radial-gradient(circle at center, rgba(16, 185, 129, 0.03), transparent); padding: 110px 20px; text-align: center; position: relative; border-bottom: 1px solid #f1f5f9;">
+    <div style="position: absolute; top: 20%; left: 8%; width: 250px; height: 250px; background: rgba(79, 70, 229, 0.06); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: 15%; right: 8%; width: 300px; height: 300px; background: rgba(6, 182, 212, 0.05); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+
+    <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;">
+        <span class="hero-tagline" style="background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; display: inline-block; margin-bottom: 25px; padding: 6px 18px; background-color: rgba(79, 70, 229, 0.04); border-radius: 50px; border: 1px solid rgba(79, 70, 229, 0.12);">
+            <i class="bi bi-brain"></i> Clinical Down-Regulation & Anxiety Containment
+        </span>
+        
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: #0f172a; margin-bottom: 25px; letter-spacing: -1.5px; line-height: 1.15;">
+            Deconstruct the Anxious Loop.<br>
+            <span style="background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Anchor Your Mind In The Present.</span>
+        </h1>
+        
+        <p style="max-width: 800px; margin: 0 auto 35px auto; font-size: 1.25rem; line-height: 1.8; color: #475569; font-weight: 400;">
+            Anxiety is an overactive hyper-awareness system scanning for future threats. When it escalates into continuous physical and mental fatigue, applying systematic grounding exercises breaks the feedback loop and resets cognitive balance.
+        </p>
+
+        <!-- Scannable Navigation Array -->
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;">
+            <a href="#anxiety-anatomy" style="font-size: 0.85rem; font-weight: 600; color: #4f46e5; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">1. The Anxiety Loop</a>
+            <a href="#six-strategies" style="font-size: 0.85rem; font-weight: 600; color: #06b6d4; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">2. Targeted Containment</a>
+            <a href="#attack-protocol" style="font-size: 0.85rem; font-weight: 600; color: #10b981; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">3. Somatic Grounding Matrix</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 2. MAIN GUIDE STRUCTURAL CONTAINER ================= -->
+<div class="main-container" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px;">
+    
+    <!-- SECTION A: THE DEEP DEFINITION & SYMPTOMS -->
+    <div id="anxiety-anatomy" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 50px; align-items: center;">
+            
+            <div class="guide-card" style="background: #ffffff; padding: 45px; border-radius: 28px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(15,23,42,0.02);">
+                <div style="width: 55px; height: 55px; background: rgba(79, 70, 229, 0.08); color: #4f46e5; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 25px;">
+                    <i class="bi bi-brain"></i>
+                </div>
+                
+                <h3 style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 15px;">What Exactly is Anxiety?</h3>
+                
+                <p style="color: #475569; line-height: 1.75; font-size: 1.05rem; margin-bottom: 15px;">
+                    Anxiety is an internal state characterized by lingering feelings of fear, nervousness, anticipation, or persistent overthinking regarding future situations. While occasional worry is a standard human response, it requires intentional care when it begins disrupting daily production.
+                </p>
+                <p style="color: #475569; line-height: 1.75; font-size: 1.05rem; margin-bottom: 0;">
+                    Anxiety impacts the entire biological framework, leaving your mind feeling restless and your body exhausted. Left unchecked, it presents physically as racing thoughts, localized sweating, accelerated heart rates, compromised sleep patterns, or deep distraction.
+                </p>
+            </div>
+
+            <div>
+                <span style="color: #4f46e5; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Symptom Identification Matrix</span>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 25px; line-height: 1.2;">Mapping the Systemic Manifestations</h2>
+                
+                <!-- Expanded Custom Symptom Tag System -->
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-cone-striped" style="color: #ef4444;"></i> Overthinking Minor Scenarios</span>
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-heart-pulse-fill" style="color: #f43f5e;"></i> Fast Heartbeat / Chest Tightness</span>
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-moon-stars" style="color: #3b82f6;"></i> Persistent Insomnia Loops</span>
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-eye-slash" style="color: #eab308;"></i> Fragmented Concentration</span>
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-shield-x" style="color: #a855f7;"></i> Hyper-Awareness of Judgment</span>
+                    <span style="padding: 10px 18px; background: #fff; border: 1px solid #e2e8f0; color: #334155; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="bi bi-lightning-charge" style="color: #10b981;"></i> Continuous Mental Exhaustion</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION B: THE 6 INTERACTIVE METHOD CARDS -->
+    <div id="six-strategies" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
+            <span style="color: #06b6d4; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">Actionable Strategies</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 15px;">Six Strategic Pillars for Cognitive Regulation</h2>
+            <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                Deploy these practical lifestyle frameworks to actively mitigate anxiety, lower baseline cortisol, and establish structural focus.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+            
+            <!-- Strategy 1: Breathing -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(6, 182, 212, 0.08); color: #06b6d4; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-wind"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">1. Pulmonary Down-Regulation</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Deep, paced breathing alters carbon dioxide saturation levels in the blood, interrupting your brain's emergency signals:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                    <li>Inhale smoothly through your nose for <strong>4 seconds</strong></li>
+                    <li>Hold your breath perfectly still for <strong>4 seconds</strong></li>
+                    <li>Exhale entirely through your mouth for <strong>6 seconds</strong></li>
+                    <li>Repeat the full sequence for <strong>5–10 iterations</strong></li>
+                </ul>
+                <p style="color: #64748b; font-size: 0.85rem; margin: 0; font-style: italic;">
+                    Result: Triggers natural parasympathetic dominance over the anxiety response.
+                </p>
+            </div>
+
+            <!-- Strategy 2: Overthinking -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(79, 70, 229, 0.08); color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-lightbulb-fill"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">2. Objective Thought Decoupling</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Anxiety expands when we run internal simulations of negative outcomes. Learn to separate actual events from raw imagination:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Log racing thoughts directly into a journal to break their internal loop</li>
+                    <li>Challenge your assumptions by asking: <em>"Is this an absolute fact or an unproven theory?"</em></li>
+                    <li>Quickly shift your processing focus exclusively toward items you control</li>
+                    <li>Refuse to continually replay past conversations or hypothetical problems</li>
+                </ul>
+            </div>
+
+            <!-- Strategy 3: Physical Health -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.08); color: #10b981; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-activity"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">3. Metabolic Exhaustion Release</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Physical movement serves as an intentional metabolizing mechanism for residual fight-or-flight chemistry:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                    <li>Maintain an outdoor walking routine daily</li>
+                    <li>Incorporate slow, deep stretching or structured yoga positions</li>
+                    <li>Commit to continuous movement patterns for 20–30 minutes daily</li>
+                    <li>Spend time outside under natural light to stabilize circadian clocks</li>
+                </ul>
+            </div>
+
+            <!-- Strategy 4: Sleep -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(147, 51, 234, 0.08); color: #a855f7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">4. Circadian Architecture Protection</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    A sleep-deprived brain shows significantly increased reactivity to negative events. Protect your nighttime recovery:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Keep blue-light screens away from your eyes before turning out the lights</li>
+                    <li>Maintain an identical sleep and wake schedule across the entire week</li>
+                    <li>Eliminate stimulant caffeine drinks later in the afternoon and evening</li>
+                    <li>Utilize instrumental tracks, brown noise, or ambient audio to wind down</li>
+                </ul>
+            </div>
+
+            <!-- Strategy 5: Support -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(244, 114, 182, 0.08); color: #f472b6; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">5. Externalizing Internal Stress</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Isolating yourself during anxiety spikes causes thoughts to echo inwardly, making problems look twice as massive as they are:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Share your current feelings openly with your closest circles or family</li>
+                    <li>Review complex concerns objectively with a trusted mentor or counselor</li>
+                    <li>Engage actively with structured, non-judgmental support communities</li>
+                    <li>Avoid pulling away from positive social contacts for long periods</li>
+                </ul>
+            </div>
+
+            <!-- Strategy 6: Digital Stress -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(239, 68, 68, 0.08); color: #ef4444; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-phone-fill"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">6. Digital Intake Modulation</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Constant algorithmic stimulation keeps your brain's threat centers overly active. Practice intentional digital boundaries:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Restrict high-speed social feeds to designated short intervals</li>
+                    <li>Stop comparing your actual life against curated highlight reels online</li>
+                    <li>Take structured multi-hour breaks away from sensational news channels</li>
+                    <li>Turn off all non-essential application notification updates entirely</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION C: THE SOMATIC 5-4-3-2-1 CRITICAL DE-ESCALATION PROTOCOL -->
+    <div id="attack-protocol" style="margin-bottom: 100px; padding: 60px 45px; background: #0f172a; border-radius: 32px; color: white; scroll-margin-top: 50px;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
+            <div style="display: inline-block; padding: 6px 14px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 50px; color: #34d399; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px;">
+                <i class="bi bi-shield-fill-exclamation"></i> Immediate Crisis Containment
+            </div>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 0; margin-bottom: 15px;">Acute Anxiety & Panic Attack Protocol</h2>
+            <p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                If your physical anxiety escalates sharply, instantly sit down, stabilize your position, and anchor your processing through this tactical grounding matrix:
+            </p>
+        </div>
+
+        <div style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Grounding Intro Actions -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 25px; display: flex; align-items: center; gap: 20px;">
+                <div style="font-size: 2rem; color: #06b6d4; opacity: 0.8;"><i class="bi bi-geo-alt-fill"></i></div>
+                <div>
+                    <h5 style="margin: 0 0 4px 0; color: #f1f5f9; font-weight: 700; font-size: 1.1rem;">Phase 1: Initial Stabilization</h5>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.9rem; line-height: 1.5;">Stop moving and sit somewhere secure. Focus on slowing down your breath and drink cold water in slow, intentional sips.</p>
+                </div>
+            </div>
+
+            <!-- Grounding 54321 Action Matrix -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 30px;">
+                <h5 style="margin: 0 0 20px 0; color: #f1f5f9; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="bi bi-eye" style="color: #a78bfa;"></i> Phase 2: Deploy the Sensory 5-4-3-2-1 Method
+                </h5>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; text-align: center;">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 15px; border-radius: 12px;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #6ee7b7; margin-bottom: 2px;">5</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">SEE</div>
+                        <p style="margin: 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.4;">Name 5 distinct items in your vision field.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 15px; border-radius: 12px;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #38bdf8; margin-bottom: 2px;">4</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">TOUCH</div>
+                        <p style="margin: 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.4;">Identify 4 textures you can physically feel.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 15px; border-radius: 12px;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #a78bfa; margin-bottom: 2px;">3</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">HEAR</div>
+                        <p style="margin: 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.4;">Isolate 3 individual background sounds.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 15px; border-radius: 12px;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #f472b6; margin-bottom: 2px;">2</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">SMELL</div>
+                        <p style="margin: 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.4;">Recognize 2 distinct scents around you.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); padding: 15px; border-radius: 12px;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #fb7185; margin-bottom: 2px;">1</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">TASTE</div>
+                        <p style="margin: 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.4;">Focus on 1 specific flavor or taste.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grounding Reassurance Block -->
+            <div style="background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.1); border-radius: 16px; padding: 22px 25px; display: flex; align-items: center; gap: 18px;">
+                <div style="font-size: 1.4rem; color: #34d399;"><i class="bi bi-shield-check"></i></div>
+                <p style="margin: 0; color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                    Remind yourself clearly: <strong>"This intense feeling is temporary."</strong> Anxiety spikes are short-lived. Your biology will naturally calm back down down to its resting baseline.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= 3. FINAL QUOTE HERO CALLOUT ================= -->
+    <div class="quote-box" style="background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%); color: white; padding: 60px 40px; border-radius: 28px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(99,102,241,0.15); margin-bottom: 60px;">
+        <div style="position: absolute; top: -30px; left: 30px; font-size: 14rem; color: rgba(255,255,255,0.04); line-height: 1; font-family: serif; user-select: none; pointer-events: none;">&ldquo;</div>
+        
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 0; margin-bottom: 15px; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <i class="bi bi-heart-fill" style="color: #fff; font-size: 1.5rem;"></i> Foundational Reminder
+        </h2>
+        
+        <p style="font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 600; line-height: 1.45; max-width: 800px; margin: 0 auto; color: #e0e7ff;">
+            “Anxiety does not define who you are or determine your capabilities. Healing takes patience, continuous self-care, and small daily improvements.”
+        </p>
+        <span style="display: block; margin-top: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #a5b4fc; font-weight: 700;">You are inherently stronger than your anxious thoughts</span>
+    </div>
+
+    <!-- ================= 4. SECURE RETURN GATEWAY ================= -->
+    <div style="text-align: center; padding-top: 15px;">
+        <!-- Secure link matching active framework architecture -->
+        <a href="{{ url_for('dashboard') }}" class="dashboard-btn" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 16px 40px; border-radius: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(15,23,42,0.12); transition: all 0.25s ease; font-size: 1rem;">
+            <i class="bi bi-arrow-left-circle-fill" style="font-size: 1.2rem;"></i> Return Securely to Home
+        </a>
+        <span style="display: block; margin-top: 12px; font-size: 0.75rem; color: #94a3b8; font-weight: 500;">Handshake verified · Secure session callback alive</span>
+    </div>
+
+</div>
+
+<!-- ================= GLOBAL DESIGN ANIMATION HOVER RULES ================= -->
+<style>
+html { scroll-behavior: smooth; }
+.guide-card { transition: all 0.3s ease; }
+.guide-card:hover { transform: translateY(-5px); border-color: #cbd5e1 !important; box-shadow: 0 12px 30px rgba(15,23,42,0.03) !important; }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

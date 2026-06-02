@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stress Management Guide</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f3f7ff;
+    overflow-x:hidden;
+}
+
+/* ================= HERO SECTION ================= */
+
+.top-navbar{
+    position:relative;
+    width:100%;
+    min-height:560px;
+    padding:40px 60px 50px 60px;
+    overflow:hidden;
+    background:
+    linear-gradient(
+        rgba(10,20,40,0.6),
+        rgba(10,20,40,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.18);
+}
+
+/* GLOW EFFECT */
+.glow1{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#7c3aed;
+    border-radius:50%;
+    filter:blur(130px);
+    top:-100px;
+    left:-100px;
+    opacity:0.35;
+}
+
+.glow2{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#06b6d4;
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-120px;
+    right:-100px;
+    opacity:0.35;
+}
+
+/* BRAND MAIN HEADER ROW */
+.nav-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* LEFT BRANDING CONTAINER (LOGO + TEXT PARTITION) */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* FROSTED LOGO SQUARE WITH HOME LINK */
+.logo-wrapper {
+    width: 95px;
+    height: 95px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.logo-wrapper i {
+    font-size: 45px;
+    color: #22c55e; /* Vibrant green matching your dashboard */
+    filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+}
+
+/* TEXT AREA NEXT TO THE LOGO PARTITION */
+.brand-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    width: max-content;
+    margin-bottom: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.brand-main-title {
+    color: white;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 6px;
+    max-width: 600px;
+}
+
+/* RIGHT SIDE LOGOUT BUTTON */
+.logout-box-container {
+    margin-top: 10px;
+}
+
+.logout-rect-btn {
+    background: #ff4d4d;
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+    text-decoration: none;
+}
+
+.logout-rect-btn:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
+}
+
+/* HERO SECTION TEXT OVERRIDE FOR GUIDE PAGE TITLE */
+.hero-content-title {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hero-content-title h1 {
+    font-size: 42px;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ================= COMMUNITY STYLED NAVIGATION LINKS ================= */
+.nav-buttons-panel {
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 14px;
+    border-radius: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-item {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    color: white !important;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.nav-link-item i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.nav-link-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ACCENT BUTTON THEMES */
+.item-home { background: #2563eb; }
+.item-about { background: #ea580c; }
+.item-help { background: #db2777; }
+.item-community { background: #c084fc; }
+.item-chatbot { background: #fcd34d; color: #111 !important; }
+.item-review { background: #0284c7; }
+.item-appointment { background: #0d9488; }
+.item-helpline { background: #dc2626; }
+
+/* DROPDOWNS */
+.dropdown-menu {
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.98);
+    margin-top: 8px !important;
+}
+
+.dropdown-item {
+    font-size: 15px;
+    font-weight: 550;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #374151;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+}
+
+/* MAIN CONTENT BOX */
+.main-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    margin-top:50px;
+    padding-bottom:70px;
+}
+
+/* RESPONSIVE DESIGN BREAKPOINTS */
+@media(max-width:1199px) {
+    .nav-buttons-panel {
+        width: 95%;
+        left: 0;
+        transform: none;
+        display: flex;
+    }
+}
+
+@media(max-width:768px){
+    .top-navbar{
+        padding: 25px 20px;
+        min-height: auto;
+    }
+
+    .nav-top-row{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .brand-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .welcome-badge {
+        margin: 0 auto 8px auto;
+    }
+
+    .brand-main-title {
+        font-size: 36px;
+    }
+
+    .logout-box-container {
+        width: 100%;
+    }
+
+    .logout-rect-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-buttons-panel{
+        flex-direction:column;
+        align-items: stretch;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .nav-link-item, .dropdown, .dropdown-toggle{
+        width:100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-navbar">
+
+    <div class="glow1"></div>
+    <div class="glow2"></div>
+
+    <div class="container-fluid px-0">
+        <div class="nav-top-row">
+
+            <div class="brand-container">
+                
+                <a href="{{ url_for('home') }}" class="logo-wrapper" title="Go to Home">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </a>
+
+                <div class="brand-text-block">
+                    <div class="welcome-badge">✨ Welcome to Wellness</div>
+                    <div class="brand-main-title">Mental Wellness Hub</div>
+                    <div class="brand-subtitle">Supporting emotional wellness, positivity, healing, mindfulness, and self-care through community support and AI-powered assistance.</div>
+                </div>
+
+            </div>
+
+            <div class="logout-box-container">
+                <a href="{{ url_for('logout') }}" class="logout-rect-btn">
+                    <i class="bi bi-box-arrow-right"></i>Logout
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-content-title">
+        <h1>Stress Management Guide</h1>
+    </div>
+
+    <div class="nav-buttons-panel">
+
+        <a href="{{ url_for('home') }}" class="nav-link-item item-home">
+            <i class="bi bi-house-door-fill"></i>Home
+        </a>
+
+        <a href="{{ url_for('about_us') }}" class="nav-link-item item-about">
+            <i class="bi bi-info-circle-fill"></i>About Us
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-help dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-life-preserver"></i>Seek Assistance
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('stress_management') }}">
+                        <i class="bi bi-emoji-smile text-danger"></i>Stress Management
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('anxiety_support') }}">
+                        <i class="bi bi-shield-heart text-primary"></i>Anxiety Support
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('self_care') }}">
+                        <i class="bi bi-flower1 text-success"></i>Self Care
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('community') }}" class="nav-link-item item-community">
+            <i class="bi bi-people-fill"></i>Community
+        </a>
+
+        <a href="{{ url_for('chatbot') }}" class="nav-link-item item-chatbot">
+            <i class="bi bi-robot"></i>Chatbot
+        </a>
+
+        <div class="dropdown">
+            <button class="nav-link-item item-review dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-journal-check"></i>Review
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('create_post') }}">
+                        <i class="bi bi-plus-circle text-success"></i>Create Post
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ url_for('my_posts') }}">
+                        <i class="bi bi-journal-text text-primary"></i>My Posts
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="{{ url_for('appointment') }}" class="nav-link-item item-appointment">
+            <i class="bi bi-calendar-check"></i>Book Appointment
+        </a>
+
+        <a href="{{ url_for('helpline') }}" class="nav-link-item item-helpline">
+            <i class="bi bi-telephone-fill"></i>Free Helpline
+        </a>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- ================= CONTENT ================= -->
+
+<!-- ================= 1. EXTRA-LARGE STRESS MANAGEMENT HERO ARCHITECTURE ================= -->
+<section class="hero-section" id="stress-guide-top" style="background: radial-gradient(circle at top left, rgba(239, 68, 68, 0.05), transparent), radial-gradient(circle at bottom right, rgba(79, 70, 229, 0.05), transparent), radial-gradient(circle at center, rgba(6, 182, 212, 0.03), transparent); padding: 110px 20px; text-align: center; position: relative; border-bottom: 1px solid #f1f5f9;">
+    <div style="position: absolute; top: 20%; left: 8%; width: 250px; height: 250px; background: rgba(239, 68, 68, 0.06); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: 15%; right: 8%; width: 300px; height: 300px; background: rgba(79, 70, 229, 0.05); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+
+    <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;">
+        <span class="hero-tagline" style="background: linear-gradient(90deg, #ef4444, #4f46e5, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; display: inline-block; margin-bottom: 25px; padding: 6px 18px; background-color: rgba(239, 68, 68, 0.04); border-radius: 50px; border: 1px solid rgba(239, 68, 68, 0.12);">
+            <i class="bi bi-brain"></i> Neuro-Regulation & Stress Mitigation Protocol
+        </span>
+        
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: #0f172a; margin-bottom: 25px; letter-spacing: -1.5px; line-height: 1.15;">
+            Master the Nervous System.<br>
+            <span style="background: linear-gradient(135deg, #ef4444 0%, #4f46e5 50%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">De-Escalate Stress on Demand.</span>
+        </h1>
+        
+        <p style="max-width: 800px; margin: 0 auto 35px auto; font-size: 1.25rem; line-height: 1.8; color: #475569; font-weight: 400;">
+            Stress is a natural physiological reaction to external pressure. However, prolonged activation without intentional down-regulation erodes cognitive ability and mental resilience. Learn how to systematically neutralize the stress response.
+        </p>
+
+        <!-- Quick Jump Scannability Array -->
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;">
+            <a href="#stress-mechanics" style="font-size: 0.85rem; font-weight: 600; color: #ef4444; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">1. The Mechanics</a>
+            <a href="#six-tactics" style="font-size: 0.85rem; font-weight: 600; color: #4f46e5; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">2. Mitigation Framework</a>
+            <a href="#emergency-protocol" style="font-size: 0.85rem; font-weight: 600; color: #06b6d4; text-decoration: none; padding: 6px 16px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">3. Crisis De-escalation</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 2. MAIN GUIDE STRUCTURAL CONTAINER ================= -->
+<div class="main-container" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px;">
+    
+    <!-- SECTION A: THE DEEP DEFINITION (WHAT IS STRESS) -->
+    <div id="stress-mechanics" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 50px; align-items: center;">
+            
+            <div class="guide-card" style="background: #ffffff; padding: 45px; border-radius: 28px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(15,23,42,0.02);">
+                <div style="width: 55px; height: 55px; background: rgba(239, 68, 68, 0.08); color: #ef4444; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 25px;">
+                    <i class="bi bi-brain"></i>
+                </div>
+                
+                <h3 style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 15px;">Understanding Your Body's Alarm System</h3>
+                
+                <p style="color: #475569; line-height: 1.75; font-size: 1.05rem; margin-bottom: 15px;">
+                    Stress is your body’s natural response to pressure or difficult situations. When triggered, it floods your biological systems with energy meant to keep you safe. 
+                </p>
+                <p style="color: #475569; line-height: 1.75; font-size: 1.05rem; margin-bottom: 0;">
+                    The real danger occurs when stress continues for a long period without matching windows of deep relaxation. Learning to manage this response creates major improvements in your daily focus, sleep cycles, emotional stability, and long-term mental health.
+                </p>
+            </div>
+
+            <div>
+                <span style="color: #ef4444; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">The Cost of Chronic Load</span>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 20px; line-height: 1.2;">Breaking the Cycle of Cognitive Strain</h2>
+                <p style="color: #475569; line-height: 1.7; font-size: 1rem; margin-bottom: 20px;">
+                    Remaining in a state of high alerts keeps your sympathetic nervous system stuck in the "on" position. Intercepting this cascade requires intentional lifestyle modifications and somatic feedback loops.
+                </p>
+                
+                <!-- Quick Metrics Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid #e2e8f0; padding-top: 25px;">
+                    <div>
+                        <h4 style="margin: 0 0 5px 0; color: #0f172a; font-weight: 700; font-size: 1rem;"><i class="bi bi-heart-pulse" style="style: display: inline-block; color: #ef4444; margin-right: 6px;"></i> High Autonomic Load</h4>
+                        <p style="margin: 0; color: #64748b; font-size: 0.85rem; line-height: 1.5;">Elevated resting heart rate and shallow breathing limit processing capacity.</p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 5px 0; color: #0f172a; font-weight: 700; font-size: 1rem;"><i class="bi bi-shield-check" style="style: display: inline-block; color: #10b981; margin-right: 6px;"></i> Neuro-Regulation</h4>
+                        <p style="margin: 0; color: #64748b; font-size: 0.85rem; line-height: 1.5;">Targeted breaks deliberately reset baseline safety markers in the brain.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION B: THE 6 CORE MITIGATION PILLARS -->
+    <div id="six-tactics" style="margin-bottom: 100px; scroll-margin-top: 50px;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
+            <span style="color: #4f46e5; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">The Execution Framework</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 15px;">Six Tactical Pillars for Stress Suppression</h2>
+            <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                Incorporate these structured behaviors into your day to protect your mind and systematically reduce internal friction.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+            
+            <!-- Card 1: Breathing -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(6, 182, 212, 0.08); color: #06b6d4; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-wind"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">1. Visceral Breathing Mechanics</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Use this breathing sequence whenever you notice your anxiety rising to manually signal safety to your central nervous system:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                    <li>Inhale slowly through your nose for <strong>4 seconds</strong></li>
+                    <li>Hold your breath comfortably for <strong>4–7 seconds</strong></li>
+                    <li>Exhale entirely through your mouth for <strong>6–8 seconds</strong></li>
+                </ul>
+                <p style="color: #64748b; font-size: 0.85rem; margin: 0; font-style: italic;">
+                    Result: Fast stimulation of the vagus nerve to lower heart rate.
+                </p>
+            </div>
+
+            <!-- Card 2: Healthy Routine -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(79, 70, 229, 0.08); color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">2. Regular Routine Design</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Setting predictable rhythms lowers the daily cognitive effort required to manage your day, keeping your focus high and sharp:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Go to bed and wake up at the exact same times daily</li>
+                    <li>Eat clean, balanced meals at set intervals</li>
+                    <li>Schedule true, disconnected breaks while studying or working</li>
+                    <li>Map out your primary tasks clearly before opening screens</li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Physical Activity -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.08); color: #10b981; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-activity"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">3. Intentional Physical Output</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Moving your body provides an effective physical outlet to burn through extra adrenaline and stress hormones:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                    <li>Take a continuous outdoor walk for 20–30 minutes</li>
+                    <li>Incorporate focused yoga sequences or deep full-body stretching</li>
+                    <li>Complete brief, energizing workouts right at home</li>
+                </ul>
+                <p style="color: #64748b; font-size: 0.85rem; margin: 0; font-style: italic;">
+                    Result: Naturally triggers endorphins to sweep clear persistent anxiety.
+                </p>
+            </div>
+
+            <!-- Card 4: Control Thoughts -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(234, 179, 8, 0.08); color: #eab308; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">4. Cognitive Containment</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Stop cycles of overthinking before they turn into heavy anxiety by setting clear mental limits on your thoughts:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Actively cut off worst-case scenarios and looping fears</li>
+                    <li>Dump raw thoughts directly into a journal to see them clearly</li>
+                    <li>Keep your focus strictly locked on items you can change right now</li>
+                    <li>Use encouraging, objective internal phrasing when evaluating progress</li>
+                </ul>
+            </div>
+
+            <!-- Card 5: Digital Detox -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(244, 114, 182, 0.08); color: #f472b6; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-phone"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">5. Digital Boundaries</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Constant streams of digital notifications can keep your mind in an ongoing state of alertness. Build clean screen boundaries:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                    <li>Limit social feeds to short, designated windows each day</li>
+                    <li>Turn off all non-essential application notification pings</li>
+                    <li>Put away your phone at least 45 minutes before turning off the lights</li>
+                </ul>
+                <p style="color: #64748b; font-size: 0.85rem; margin: 0; font-style: italic;">
+                    Result: Lowers baseline mental distraction and encourages deeper sleep.
+                </p>
+            </div>
+
+            <!-- Card 6: Support -->
+            <div class="guide-card" style="background: #ffffff; padding: 35px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
+                <div style="width: 48px; height: 48px; background: rgba(147, 51, 234, 0.08); color: #a855f7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0;">6. Vocalizing Emotional Pressure</h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                    Holding stress completely inside can make the emotional weight feel twice as heavy. Sharing it lightens the pressure:
+                </p>
+                <ul style="padding-left: 20px; color: #475569; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
+                    <li>Have open conversations with trusted friends or family members</li>
+                    <li>Name your specific feelings out loud instead of keeping them hidden</li>
+                    <li>Spend time with encouraging circles that understand your goals</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION C: ACCORDION-STYLE CRITICAL INTERACTION DE-ESCALATION -->
+    <div id="emergency-protocol" style="margin-bottom: 100px; padding: 50px; background: #fafafa; border: 1px solid #e2e8f0; border-radius: 32px; scroll-margin-top: 50px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="display: inline-block; padding: 6px 14px; background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 50px; color: #ef4444; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
+                <i class="bi bi-shield-fill-exclamation"></i> Emergency Contingency
+            </div>
+            <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0;">When Stress Feels Entirely Overwhelming</h2>
+            <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">If your anxiety spikes sharply, execute these immediate actions in order to steady your baseline:</p>
+        </div>
+
+        <div style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
+            
+            <!-- Protocol Element 1 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 25px;">
+                <h5 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: #ef4444; color: white; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+                    Initiate an Immediate Hard Break
+                </h5>
+                <p style="margin: 0; color: #475569; font-size: 0.9rem; line-height: 1.6; padding-left: 34px;">
+                    Step away from your immediate workstation, keyboard, or difficult conversation right away. Give your mind a physical change of scenery to disrupt the compounding stress loop.
+                </p>
+            </div>
+
+            <!-- Protocol Element 2 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 25px;">
+                <h5 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: #06b6d4; color: white; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+                    Seek Environmental Shift & Fresh Air
+                </h5>
+                <p style="margin: 0; color: #475569; font-size: 0.9rem; line-height: 1.6; padding-left: 34px;">
+                    Step outside or stand near an open window. Taking deep breaths of fresh air while looking at an outdoor landscape allows your visual focus to widen, which helps lower internal panic.
+                </p>
+            </div>
+
+            <!-- Protocol Element 3 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 25px;">
+                <h5 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: #4f46e5; color: white; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+                    Deploy Auditory Down-Regulation
+                </h5>
+                <p style="margin: 0; color: #475569; font-size: 0.9rem; line-height: 1.6; padding-left: 34px;">
+                    Put on headphones and play ambient tracks, steady white noise, or calming music. Blocking out loud background sounds allows your overstimulated auditory circuits a chance to rest.
+                </p>
+            </div>
+
+            <!-- Protocol Element 4 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 25px;">
+                <h5 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 24px; height: 24px; border-radius: 50%; background: #10b981; color: white; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</span>
+                    Connect with a Dedicated Counselor or Advisor
+                </h5>
+                <p style="margin: 0; color: #475569; font-size: 0.9rem; line-height: 1.6; padding-left: 34px;">
+                    Reach out directly to a trusted person, an objective friend, or a professional mental health counselor. Speaking with a professional can give you immediate clarity and help you navigate intense emotional moments safely.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= 3. FINAL QUOTE HERO CALLOUT ================= -->
+    <div class="quote-box" style="background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%); color: white; padding: 60px 40px; border-radius: 28px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(79,70,229,0.15); margin-bottom: 60px;">
+        <div style="position: absolute; top: -30px; left: 30px; font-size: 14rem; color: rgba(255,255,255,0.04); line-height: 1; font-family: serif; user-select: none; pointer-events: none;">&ldquo;</div>
+        
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 0; margin-bottom: 15px; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <i class="bi bi-flower1" style="color: #6ee7b7; font-size: 1.5rem;"></i> Daily Motivation
+        </h2>
+        
+        <p style="font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 600; line-height: 1.45; max-width: 800px; margin: 0 auto; color: #e0e7ff;">
+            “You don’t have to control every thought that passes through your head. You just have to stop letting them control you.”
+        </p>
+        <span style="display: block; margin-top: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #818cf8; font-weight: 700;">Protect Your Cognitive Peace Above All Else</span>
+    </div>
+
+    <!-- ================= 4. SECURE RETURN GATEWAY ================= -->
+    <div style="text-align: center; padding-top: 15px;">
+        <!-- Secure link matching python application configuration -->
+        <a href="{{ url_for('dashboard') }}" class="dashboard-btn" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 16px 40px; border-radius: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(15,23,42,0.12); transition: all 0.25s ease; font-size: 1rem;">
+            <i class="bi bi-arrow-left-circle-fill" style="font-size: 1.2rem;"></i> Return Securely to Home
+        </a>
+        <span style="display: block; margin-top: 12px; font-size: 0.75rem; color: #94a3b8; font-weight: 500;">Handshake verified · Secure session callback alive</span>
+    </div>
+
+</div>
+
+<!-- ================= GLOBAL DESIGN ANIMATION HOVER RULES ================= -->
+<style>
+html { scroll-behavior: smooth; }
+.guide-card { transition: all 0.3s ease; }
+.guide-card:hover { transform: translateY(-5px); border-color: #cbd5e1 !important; box-shadow: 0 12px 30px rgba(15,23,42,0.03) !important; }
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
