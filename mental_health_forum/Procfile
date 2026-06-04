@@ -1,1 +1,1 @@
-web: gunicorn mental_health_forum.app:app
+web: gunicorn app:app
