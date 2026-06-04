@@ -7,5 +7,3 @@ jupyterlab==4.4.5
 notebook==7.4.4
 matplotlib==3.10.5
 seaborn==0.13.2
-pywin32==311
-pywinpty==2.0.15
